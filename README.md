@@ -18,7 +18,7 @@ Python Server
 
 ```caddyfile
 https://localhost:10250 {
-    tls /etc/caddy/certs/server/server.crt /etc/caddy/certs/server/server.key {
+    tls /etc/caddy/certs/server.crt /etc/caddy/certs/server.key {
         client_auth {
             mode require
             verifier leaf {
@@ -48,7 +48,7 @@ services:
       - "10250:10250"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - ./certs/server:/etc/caddy/certs/server:ro
+      - ./certs:/etc/caddy/certs:ro
       - ./certs/clients:/etc/caddy/certs/clients:ro
 ```
 
