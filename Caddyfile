@@ -1,0 +1,11 @@
+https://localhost:10250 {
+    tls /etc/caddy/certs/server.crt /etc/caddy/certs/server.key {
+        client_auth {
+            mode require
+            verifier leaf {
+                folder /etc/caddy/certs/clients
+            }
+        }
+    }
+    reverse_proxy hello-server:10250
+}
